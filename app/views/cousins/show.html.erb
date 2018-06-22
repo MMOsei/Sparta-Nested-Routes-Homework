@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cousin.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @cousin.gender %>
+</p>
+
+<p>
+  <strong>Married:</strong>
+  <%= @cousin.married %>
+</p>
+
+<p>
+  <strong>Mum:</strong>
+  <%= @cousin.mum_id %>
+</p>
+
+<%= link_to 'Edit', edit_cousin_path(@cousin) %> |
+<%= link_to 'Back', cousins_path %>

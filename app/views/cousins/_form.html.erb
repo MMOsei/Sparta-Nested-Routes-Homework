@@ -1,0 +1,37 @@
+<%= form_with(model: cousin, local: true) do |form| %>
+  <% if cousin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cousin.errors.count, "error") %> prohibited this cousin from being saved:</h2>
+
+      <ul>
+      <% cousin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :married %>
+    <%= form.check_box :married %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mum_id %>
+    <%= form.number_field :mum_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

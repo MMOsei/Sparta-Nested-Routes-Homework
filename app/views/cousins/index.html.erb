@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cousins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Married</th>
+      <th>Mum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cousins.each do |cousin| %>
+      <tr>
+        <td><%= cousin.name %></td>
+        <td><%= cousin.gender %></td>
+        <td><%= cousin.married %></td>
+        <td><%= cousin.mum_id %></td>
+        <td><%= link_to 'Show', cousin %></td>
+        <td><%= link_to 'Edit', edit_cousin_path(cousin) %></td>
+        <td><%= link_to 'Destroy', cousin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cousin', new_cousin_path %>
