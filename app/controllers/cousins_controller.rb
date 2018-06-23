@@ -10,25 +10,30 @@ class CousinsController < ApplicationController
   # GET /cousins/1
   # GET /cousins/1.json
   def show
+    @mum = Mum.find(params[:mum_id])
   end
 
   # GET /cousins/new
   def new
     @cousin = Cousin.new
+    @mum = Mum.find(params[:mum_id])
   end
 
   # GET /cousins/1/edit
   def edit
+    @mum = Mum.find(params[:mum_id])
   end
 
   # POST /cousins
   # POST /cousins.json
   def create
     @cousin = Cousin.new(cousin_params)
+    @mum = Mum.find(params[:mum_id])
+    @cousin.mum = @mum
 
     respond_to do |format|
       if @cousin.save
-        format.html { redirect_to @cousin, notice: 'Cousin was successfully created.' }
+        format.html { redirect_to mum_path(@cousin), notice: 'Gen2 was successfully created.' }
         format.json { render :show, status: :created, location: @cousin }
       else
         format.html { render :new }
@@ -40,9 +45,10 @@ class CousinsController < ApplicationController
   # PATCH/PUT /cousins/1
   # PATCH/PUT /cousins/1.json
   def update
+    @mum = Mum.find(params[:mum_id])
     respond_to do |format|
       if @cousin.update(cousin_params)
-        format.html { redirect_to @cousin, notice: 'Cousin was successfully updated.' }
+        format.html { redirect_to mum_path(@mum), notice: 'Gen2 was successfully updated.' }
         format.json { render :show, status: :ok, location: @cousin }
       else
         format.html { render :edit }
@@ -54,9 +60,10 @@ class CousinsController < ApplicationController
   # DELETE /cousins/1
   # DELETE /cousins/1.json
   def destroy
+    @mum = Mum.find(params[:mum_id])
     @cousin.destroy
     respond_to do |format|
-      format.html { redirect_to cousins_url, notice: 'Cousin was successfully destroyed.' }
+      format.html { redirect_to mum_path(@mum), notice: 'Cousin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

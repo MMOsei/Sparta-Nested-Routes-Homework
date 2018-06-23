@@ -10,6 +10,7 @@ class MumsController < ApplicationController
   # GET /mums/1
   # GET /mums/1.json
   def show
+
   end
 
   # GET /mums/new
@@ -28,7 +29,7 @@ class MumsController < ApplicationController
 
     respond_to do |format|
       if @mum.save
-        format.html { redirect_to @mum, notice: 'Mum was successfully created.' }
+        format.html { redirect_to @mum, notice: 'Gen1 was successfully created.' }
         format.json { render :show, status: :created, location: @mum }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class MumsController < ApplicationController
   def update
     respond_to do |format|
       if @mum.update(mum_params)
-        format.html { redirect_to @mum, notice: 'Mum was successfully updated.' }
+        format.html { redirect_to @mum, notice: 'Gen1 was successfully updated.' }
         format.json { render :show, status: :ok, location: @mum }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class MumsController < ApplicationController
   def destroy
     @mum.destroy
     respond_to do |format|
-      format.html { redirect_to mums_url, notice: 'Mum was successfully destroyed.' }
+      format.html { redirect_to mums_url, notice: 'Gen1 was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
