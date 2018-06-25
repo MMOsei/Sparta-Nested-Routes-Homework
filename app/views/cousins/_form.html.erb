@@ -1,4 +1,4 @@
-<%= form_with(model: cousin, local: true) do |form| %>
+<%= form_with(model: cousin, url: [@mum, @cousin], local: true) do |form| %>
   <% if cousin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cousin.errors.count, "error") %> prohibited this cousin from being saved:</h2>
@@ -27,8 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :mum_id %>
-    <%= form.number_field :mum_id %>
+    <%= collection_select(:cousin, :mum_id, Mum.all, :id, :name) %>
   </div>
 
   <div class="actions">

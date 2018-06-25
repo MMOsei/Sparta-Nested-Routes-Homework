@@ -20,5 +20,6 @@
   <%= @cousin.mum_id %>
 </p>
 
-<%= link_to 'Edit', edit_cousin_path(@cousin) %> |
-<%= link_to 'Back', cousins_path %>
+<%= link_to 'Edit', edit_mum_cousin_path(@mum,@cousin) %> |
+<%= link_to 'Delete', mum_cousin_path(@mum,@cousin) %> |
+<%= link_to 'Back', mum_cousins_path(@mum) %>

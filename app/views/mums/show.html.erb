@@ -15,5 +15,31 @@
   <%= @mum.married %>
 </p>
 
-<%= link_to 'Edit', edit_mum_path(@mum) %> |
-<%= link_to 'Back', mums_path %>
+<nav>
+  <%= link_to 'New Cousin', new_mum_cousin_path(@mum) %>
+  <%= link_to 'Edit', edit_mum_path(@mum) %> |
+  <%= link_to 'Back', mums_path %>
+</nav>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Married</th>
+    <th>Mum</th>
+    <th colspan="3"></th>
+  </thead>
+  <tbody>
+    <% @cousins.each do |cousin| %>
+        <tr>
+          <td><%= cousin.name %></td>
+          <td><%= cousin.gender %></td>
+          <td><%= cousin.married %></td>
+          <td><%= link_to 'See more', mum_cousin_path(@mum) %></td>
+          <td><%= link_to 'Edit', edit_mum_cousin_path(@mum,cousin) %></td>
+          <td><%= link_to 'Delete', mum_cousin_url(@mum,cousin), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

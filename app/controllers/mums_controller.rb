@@ -10,7 +10,7 @@ class MumsController < ApplicationController
   # GET /mums/1
   # GET /mums/1.json
   def show
-
+    @cousins = Cousin.all
   end
 
   # GET /mums/new
